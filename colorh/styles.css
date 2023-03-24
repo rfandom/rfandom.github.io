@@ -20,31 +20,31 @@
 }
 #button-red {
     background-color: #FF0000;
-    background-image: url('colorh/button-icon-red.png');
+    background-image: url('button-icon-red.png');
 }
 #button-orange {
     background-color: #FFA500;
-    background-image: url('colorh/button-icon-orange.png');
+    background-image: url('button-icon-orange.png');
 }
 #button-yellow {
     background-color: #FFFF00;
-    background-image: url('colorh/button-icon-yellow.png');
+    background-image: url('button-icon-yellow.png');
 }
 #button-green {
     background-color: #008000;
-    background-image: url('colorh/button-icon-green.png');
+    background-image: url('button-icon-green.png');
 }
 #button-blue {
     background-color: #2caddb;
-    background-image: url('colorh/button-icon-blue.png');
+    background-image: url('button-icon-blue.png');
 }
 #button-dblue {
     background-color: #352cdb;
-    background-image: url('colorh/button-icon-dblue.png');
+    background-image: url('button-icon-dblue.png');
 }
 #button-violet {
     background-color: #982cdb;
-    background-image: url('colorh/button-icon-violet.png');
+    background-image: url('button-icon-violet.png');
 }
 .button-container { display: flex; flex-wrap: wrap; justify-content: center; }
 @media screen and (max-width: 768px) { .button-container { flex-direction: column; align-items: center; } }
