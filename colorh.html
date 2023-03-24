@@ -139,9 +139,12 @@
 </div>
     </div>
 
-    <p class="pdzgl"><img  src="rainbow.jpg"></p>
+    <p class="pdzgl hidden" id="res">
+        <img style="display: none" src="rainbow.jpg">
+        <canvas></canvas>
+        <a>Скачать</a>
+    </p>
 <script type="text/javascript">
-    function showText() { var text = document.getElementById("text"); if (text.style.display === "none") { text.style.display = "block"; } else { text.style.display = "none"; } }
 const wordlists = [
     {
         'sel': '#button-red',
@@ -213,6 +216,28 @@ Randomizer.prototype.getNext = function() {
     return this.pool.pop();
 };
 
+function createImage(word) {
+    const res = document.querySelector('#res');
+    const canvas = res.querySelector('canvas');
+    const image = res.querySelector('img');
+    const link = res.querySelector('a');
+    const context = canvas.getContext('2d');
+
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    // Рисуем изображение на канвасе
+    context.drawImage(image, 0, 0);
+
+    // Добавляем текст на изображение
+    context.font = 'bold 24px Arial';
+    context.fillStyle = '#ffffff';
+    context.fillText(word, 10, 50);
+
+    // Создаем ссылку на скачивание изображения
+    link.download = 'Картинка.jpg';
+    link.href = canvas.toDataURL('image/jpeg');
+}
 
 function buildUi() {
     for (let block of wordlists) {
@@ -224,6 +249,7 @@ function buildUi() {
             const result = button.parentElement.querySelector('div');
             result.textContent = randomizer.getNext();
             result.style.display = 'block';
+            createImage(result.textContent);
         });
     }
 }
