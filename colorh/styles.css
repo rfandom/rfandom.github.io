@@ -1,0 +1,117 @@
+.button {
+    display: inline-block;
+    margin: 13px;
+    padding: 10px 0;
+    font-size: 16pt;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.7s ease;
+    cursor: pointer;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+#button-red {
+    background-color: #FF0000;
+    background-image: url('colorh/button-icon-red.png');
+}
+#button-orange {
+    background-color: #FFA500;
+    background-image: url('colorh/button-icon-orange.png');
+}
+#button-yellow {
+    background-color: #FFFF00;
+    background-image: url('colorh/button-icon-yellow.png');
+}
+#button-green {
+    background-color: #008000;
+    background-image: url('colorh/button-icon-green.png');
+}
+#button-blue {
+    background-color: #2caddb;
+    background-image: url('colorh/button-icon-blue.png');
+}
+#button-dblue {
+    background-color: #352cdb;
+    background-image: url('colorh/button-icon-dblue.png');
+}
+#button-violet {
+    background-color: #982cdb;
+    background-image: url('colorh/button-icon-violet.png');
+}
+.button-container { display: flex; flex-wrap: wrap; justify-content: center; }
+@media screen and (max-width: 768px) { .button-container { flex-direction: column; align-items: center; } }
+.text {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 159px;
+    border-radius: 10px;
+    margin: 11px;
+    transition: all 1.6s ease;
+    font-size: 20pt;
+}
+
+.hidden {
+    display: none;
+}
+
+.rainbow {
+    background: linear-gradient(to right, red, yellow, green, blue, violet);
+    background-position: 0 center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pdzgl
+{
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 11px;
+    margin: 10px auto; /* установка блока по центру страницы */
+    max-width: 600px; /* установка максимальной ширины блока */
+    border-radius: 10px; /* установка скругленных углов */
+    padding: 20px; /* установка отступов вокруг текста */
+}
+h1 {
+    text-align: center;
+    -webkit-text-stroke: .02em black;
+    font-family: Arial Black;
+    padding: 10px 10px;
+    margin: 10px auto; /* установка блока по центру страницы */
+}
+
+.dlink {
+    text-align: center;
+    -webkit-text-stroke: .02em black;
+    font-family: Arial Black;
+    font-size: 20pt;
+    color: black;
+    padding: 10px 10px;
+    margin: 10px auto; /* установка блока по центру страницы */
+}
+
+.dlink a {
+    text-decoration: none;
+}
+
+#resulting-image > a {
+    text-decoration: none;
+}
+
+#resulting-image a:href, #resulting-image a:link, #resulting-image a:visited {
+    color: #000000;
+}
