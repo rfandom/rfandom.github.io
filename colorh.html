@@ -64,7 +64,7 @@
         border-radius: 10px;
         margin: 11px;
         transition: all 1.6s ease;
-        font-size: 16pt;
+        font-size: 20pt;
 
     }
 
@@ -74,7 +74,7 @@
 
     .rainbow {
         background: linear-gradient(to right, red, yellow, green, blue, violet);
-        background-position: 10px center;
+        background-position: 0 center;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -106,6 +106,7 @@
         text-align: center;
         -webkit-text-stroke: .02em black;
         font-family: Arial Black;
+        font-size: 20pt;
         padding: 10px 10px;
         margin: 10px auto; /* установка блока по центру страницы */
     }
@@ -155,7 +156,7 @@
     <div class="pdzgl hidden" id="res">
         <img style="display: none" src="rainbow.jpg">
         <canvas></canvas>
-        <div class="dlink"><a>Скачать картинку!</a></div>
+        <div class="dlink"><a class="rainbow">Скачать картинку!</a></div>
     </div>
 <script type="text/javascript">
 const wordlists = [
@@ -260,7 +261,7 @@ function createImage(word) {
     context.fillText(word, textX, textY);
 
     // Создаем ссылку на скачивание изображения
-    link.download = 'Картинка.jpg';
+    link.download = 'rainbow-word.jpg';
     link.href = canvas.toDataURL('image/jpeg');
 
     target.classList.remove('hidden');
