@@ -112,6 +112,6 @@ h1 {
     text-decoration: none;
 }
 
-#resulting-image a:href, #resulting-image a:link, #resulting-image a:visited {
+#resulting-image a:active, #resulting-image a:link, #resulting-image a:visited {
     color: #000000;
 }
