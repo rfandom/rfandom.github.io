@@ -68,7 +68,7 @@
 
     }
 
-    .text.hidden {
+    .hidden {
         display: none;
     }
 
@@ -100,7 +100,22 @@
         -webkit-text-fill-color: transparent;
         /*text-shadow: 2px 2px 4px rgba(173, 172, 170, 0.5);*/
     }
-    </style>
+
+    .dlink {
+        text-align: center;
+        -webkit-text-stroke: .02em black;
+        font-family: Arial Black;
+        padding: 10px 10px;
+        margin: 10px auto; /* установка блока по центру страницы */
+        background: linear-gradient(to right, red, yellow, green, blue, violet);
+        max-width: 400px;
+        background-position: 10px center;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /*text-shadow: 2px 2px 4px rgba(173, 172, 170, 0.5);*/
+    }
+
+</style>
 </head>
 <body>
         <h1>ВЫБЕРИ СВОЙ ЦВЕТ</h1>
@@ -142,7 +157,7 @@
     <p class="pdzgl hidden" id="res">
         <img style="display: none" src="rainbow.jpg">
         <canvas></canvas>
-        <a>Скачать</a>
+        <div class="dlink"><a>Скачать картинку!</a></div>
     </p>
 <script type="text/javascript">
 const wordlists = [
@@ -217,10 +232,10 @@ Randomizer.prototype.getNext = function() {
 };
 
 function createImage(word) {
-    const res = document.querySelector('#res');
-    const canvas = res.querySelector('canvas');
-    const image = res.querySelector('img');
-    const link = res.querySelector('a');
+    const target = document.querySelector('#res');
+    const canvas = target.querySelector('canvas');
+    const image = target.querySelector('img');
+    const link = target.querySelector('a');
     const context = canvas.getContext('2d');
 
     canvas.width = image.width;
@@ -230,13 +245,27 @@ function createImage(word) {
     context.drawImage(image, 0, 0);
 
     // Добавляем текст на изображение
-    context.font = 'bold 24px Arial';
+    context.font = 'bold 48px Arial';
     context.fillStyle = '#ffffff';
-    context.fillText(word, 10, 50);
+
+    const textWidth = context.measureText(word).width;
+    const textHeight = 48;
+
+    // Вычисляем координаты центра канваса
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    // Вычисляем координаты текста
+    const textX = centerX - (textWidth / 2);
+    const textY = centerY + (textHeight / 2);
+
+    context.fillText(word, textX, textY);
 
     // Создаем ссылку на скачивание изображения
     link.download = 'Картинка.jpg';
     link.href = canvas.toDataURL('image/jpeg');
+
+    target.classList.remove('hidden');
 }
 
 function buildUi() {
@@ -246,10 +275,11 @@ function buildUi() {
         button.textContent = block.name;
         button.style = block.style;
         button.addEventListener('click', function() {
-            const result = button.parentElement.querySelector('div');
-            result.textContent = randomizer.getNext();
-            result.style.display = 'block';
-            createImage(result.textContent);
+            const word = randomizer.getNext();
+            const target = button.parentElement.querySelector('div');
+            target.textContent = word;
+            target.classList.remove('hidden');
+            createImage(word);
         });
     }
 }
